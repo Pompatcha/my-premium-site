@@ -45,7 +45,7 @@ const handleMouseEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
   </div>
 
   {/* แก้ไขตรงนี้: เพิ่ม hidden md:flex เพื่อซ่อนในมือถือ และโชว์เฉพาะจอคอม (md) */}
-  <div className="hidden md:flex relative items-center bg-white/5 rounded-full p-1 border border-white/5">
+  <div className="flex relative items-center gap-2 md:gap-4 bg-white/5 rounded-full p-1 border border-white/5 overflow-x-auto">
     
     {/* แถบสีเลื่อน (Indicator) */}
     <div 
@@ -62,19 +62,11 @@ const handleMouseEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
       <Link
         key={item.name}
         href={item.href}
-        onMouseEnter={handleMouseEnter} 
-        onMouseLeave={() => setIndicatorStyle(prev => ({ ...prev, opacity: 0 }))} 
-        className="relative z-10 px-6 py-2 text-[16px] uppercase tracking-widest font-black transition-colors duration-300 hover:text-black text-white"
+        className="relative z-10 px-3 md:px-6 py-1 md:py-2 text-[12px] md:text-[16px] uppercase tracking-widest font-black text-white"
       >
         {item.name}
       </Link>
     ))}
-  </div>
-
-  {/* ส่วนที่ 3: วางโค้ดใหม่ไว้ตรงนี้ครับ (ด้านขวาสุด) */}
-  {/* มันจะโชว์เฉพาะในมือถือ (md:hidden) และจะหายไปเมื่อดูในคอม */}
-  <div className="md:hidden text-white font-bold border border-white/20 px-3 py-1 rounded-lg text-sm">
-     MENU
   </div>
 </nav>
 
