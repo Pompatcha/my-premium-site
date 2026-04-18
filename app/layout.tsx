@@ -71,7 +71,8 @@ const handleMouseEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
     ))}
   </div>
 
-  {/* เพิ่มส่วนนี้ (ทางเลือก): ปุ่มสำหรับมือถือเบื้องต้น */}
+  {/* ส่วนที่ 3: วางโค้ดใหม่ไว้ตรงนี้ครับ (ด้านขวาสุด) */}
+  {/* มันจะโชว์เฉพาะในมือถือ (md:hidden) และจะหายไปเมื่อดูในคอม */}
   <div className="md:hidden text-white font-bold border border-white/20 px-3 py-1 rounded-lg text-sm">
      MENU
   </div>
