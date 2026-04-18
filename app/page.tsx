@@ -109,7 +109,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-linear-to-br from-magenta-500/20 to-violet-600/20 opacity-40 group-hover:opacity-60 transition-opacity"></div>
             <div className="absolute inset-0 flex items-center justify-center border-2 border-dashed border-white/30 rounded-2xl m-6">
               <Image 
-          src="/patcha.jpg"
+          src="/Patcha.jpg"
           alt="Patcharin Chanaphukdee"
           fill
           priority // ช่วยให้รูปโหลดทันที (แก้ Error LCP)

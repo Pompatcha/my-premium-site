@@ -38,7 +38,7 @@ const handleMouseEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
           <div className="flex items-center gap-5">
             <Link href="/" className="flex items-center gap-3">
               <div className="relative w-10 h-10 rounded-lg overflow-hidden border-2 border-lime-400">
-                <Image src="/patcha.jpg" alt="Profile" fill className="object-cover" />
+                <Image src="/Patcha.jpg" alt="Profile" fill className="object-cover" />
               </div>
               <span className="text-2xl font-black tracking-tighter text-white">FAOS</span>
             </Link>
