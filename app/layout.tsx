@@ -34,44 +34,48 @@ const handleMouseEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
           <BubbleBackground />
         </div>
 
-     <nav className="fixed top-0 left-0 z-100 w-full px-8 py-4 flex justify-between items-center bg-black/40 backdrop-blur-2xl border-b border-white/10 shadow-2xl">
-          <div className="flex items-center gap-5">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="relative w-10 h-10 rounded-lg overflow-hidden border-2 border-lime-400">
-                <Image src="/Patcha.jpg" alt="Profile" fill className="object-cover" />
-              </div>
-              <span className="text-2xl font-black tracking-tighter text-white">FAOS</span>
-            </Link>
-          </div>
+     <nav className="fixed top-0 left-0 z-100 w-full px-4 md:px-8 py-4 flex justify-between items-center bg-black/40 backdrop-blur-2xl border-b border-white/10 shadow-2xl">
+  <div className="flex items-center gap-5">
+    <Link href="/" className="flex items-center gap-3">
+      <div className="relative w-8 h-8 md:w-10 md:h-10 rounded-lg overflow-hidden border-2 border-lime-400">
+        <Image src="/Patcha.jpg" alt="Profile" fill className="object-cover" />
+      </div>
+      <span className="text-xl md:text-2xl font-black tracking-tighter text-white">FAOS</span>
+    </Link>
+  </div>
 
-          {/* จุดสำคัญ: div นี้ต้องมี relative เพื่อให้ absolute ข้างในอ้างอิงตำแหน่งได้ถูกต้อง */}
-          <div className="relative flex items-center bg-white/5 rounded-full p-1 border border-white/5">
-            
-            {/* แถบสีเลื่อน (Indicator) */}
-            <div 
-                className="absolute h-[80%] bg-lime-400 rounded-full transition-all duration-300 ease-out z-0 shadow-[0_0_15px_rgba(163,230,53,0.5)]"
-                style={{
-                  left: `${indicatorStyle.left}px`,
-                  width: `${indicatorStyle.width}px`,
-                  opacity: indicatorStyle.opacity,
-                  top: '10%'
-                }}
-            />
+  {/* แก้ไขตรงนี้: เพิ่ม hidden md:flex เพื่อซ่อนในมือถือ และโชว์เฉพาะจอคอม (md) */}
+  <div className="hidden md:flex relative items-center bg-white/5 rounded-full p-1 border border-white/5">
+    
+    {/* แถบสีเลื่อน (Indicator) */}
+    <div 
+        className="absolute h-[80%] bg-lime-400 rounded-full transition-all duration-300 ease-out z-0 shadow-[0_0_15px_rgba(163,230,53,0.5)]"
+        style={{
+          left: `${indicatorStyle.left}px`,
+          width: `${indicatorStyle.width}px`,
+          opacity: indicatorStyle.opacity,
+          top: '10%'
+        }}
+    />
 
-            {menuItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                onMouseEnter={handleMouseEnter} 
-                // เพิ่มบรรทัดนี้: เพื่อให้แถบสีหายไปเวลาเมาส์ไม่ได้ชี้ที่เมนูไหนเลย
-                onMouseLeave={() => setIndicatorStyle(prev => ({ ...prev, opacity: 0 }))} 
-                className="relative z-10 px-6 py-2 text-[16px] uppercase tracking-widest font-black transition-colors duration-300 hover:text-black text-white"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-        </nav>
+    {menuItems.map((item) => (
+      <Link
+        key={item.name}
+        href={item.href}
+        onMouseEnter={handleMouseEnter} 
+        onMouseLeave={() => setIndicatorStyle(prev => ({ ...prev, opacity: 0 }))} 
+        className="relative z-10 px-6 py-2 text-[16px] uppercase tracking-widest font-black transition-colors duration-300 hover:text-black text-white"
+      >
+        {item.name}
+      </Link>
+    ))}
+  </div>
+
+  {/* เพิ่มส่วนนี้ (ทางเลือก): ปุ่มสำหรับมือถือเบื้องต้น */}
+  <div className="md:hidden text-white font-bold border border-white/20 px-3 py-1 rounded-lg text-sm">
+     MENU
+  </div>
+</nav>
 
        {/* รูปช้าง */ }
             
