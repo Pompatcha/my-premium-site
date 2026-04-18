@@ -1,26 +1,86 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background-color: #a302a3; /* สีม่วงหลัก */
+    --foreground: #ffffff;
+  }
+
+  body {
+    background-color: var(--background-color);
+    color: var(--foreground);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* บังคับซ่อน Cursor เดิม */
+* {
+  cursor: none !important;
+}
+
+@keyframes float {
+  0% { 
+    transform: translateY(0) rotate(0deg); 
+    opacity: 0; 
+  }
+  20% { opacity: var(--op); }
+  90% { opacity: var(--op); }
+  100% { 
+    /* ลอยขึ้นไปให้พ้นหน้าจอ (120vh คือ 120% ของความสูงหน้าจอ) */
+    transform: translateY(-120vh) rotate(360deg); 
+    opacity: 0; 
+  }
+}
+
+.animate-float {
+  animation: float linear infinite;
+}
+/* globals.css */
+
+@keyframes walk {
+  0% { transform: translateX(-100%) scaleX(1); } /* เริ่มต้นนอกจอซ้าย, หันหน้าไปขวา */
+  45% { transform: translateX(100vw) scaleX(1); } /* เดินไปสุดจอขวา */
+  50% { transform: translateX(100vw) scaleX(-1); } /* กลับตัวที่ขอบขวา, หันหน้าไปซ้าย */
+  95% { transform: translateX(-100%) scaleX(-1); } /* เดินกลับมาสุดจอซ้าย */
+  100% { transform: translateX(-100%) scaleX(1); } /* กลับตัวที่ขอบซ้าย, หันหน้าไปขวา */
+}
+
+/* คุณสมบัติหลักที่ช้างทุกตัวต้องมี */
+.walking-elephant {
+  position: fixed;
+  top: 90px; /* ปรับให้พอดีใต้เมนูของคุณ */
+  left: 0;
+  width: 100px;
+  height: 100px;
+  animation: walk 25s linear infinite; /* ปรับความเร็วตรงนี้ */
+  z-index: 50;
+  pointer-events: none;
+}
+
+/* ตั้งค่า Delay ให้เดินตามกันเป็นขบวน */
+.walking-elephant-1 { animation-delay: 0s; }
+.walking-elephant-2 { animation-delay: -2s; } /* ติดลบเพื่อให้โผล่มาบนจอเลย */
+.walking-elephant-3 { animation-delay: -4s; }
+.walking-elephant-4 { animation-delay: -6s; }
+
+/* โค้ดหิมะ */
+.snowflake {
+  position: absolute;
+  background-color: white; /* หรือสีที่คุณต้องการ */
+  border-radius: 50%;
+  filter: blur(1px); /* ทำให้ดูเหมือนหิมะจริง */
+  z-index: 1; 
+  pointer-events: none;
+  top: -10px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(110vh); }
+}
+.snowflake {
+  animation: fall linear infinite;
 }
