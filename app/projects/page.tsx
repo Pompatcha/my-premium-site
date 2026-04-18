@@ -82,7 +82,7 @@ export default function ProjectsPage() {
               {/* Project Image Container */}
               <div className={`relative aspect-16/10 rounded-[2.5rem] overflow-hidden border border-white/10 ${project.color} backdrop-blur-md mb-8 transition-all duration-700 ease-out group-hover:scale-[1.03] group-hover:border-lime-400/50 shadow-2xl`}>
                 <Image 
-                  src={`/projects/project-${idx}.jpg`} 
+                  src={`/projects/project-${idx}.jpg`}
                   alt={project.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw" // ปรับให้เหมาะกับ 3 คอลัมน์
