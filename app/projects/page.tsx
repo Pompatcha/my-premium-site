@@ -48,6 +48,13 @@ export default function ProjectsPage() {
       desc: "Designed and developed a responsive dashboard for visualizing supplier risks and compliance metrics.",
       tags: ["Power BI", "Data Visualization", "Supplier Management"],
       color: "from-amber-500/20 to-orange-500/20"
+    },
+    {
+      title: "E-Commerce Business Dashboard",
+      category: "Data Analytics",
+      desc: "Designed and developed a high-performance dashboard for visualizing e-commerce sales and partner performance.",
+      tags: ["Power BI", "Data Visualization", "E-commerce"],
+      color: "from-cyan-500/20 to-blue-500/20"
     }
   ];
 
