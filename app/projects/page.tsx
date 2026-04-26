@@ -95,7 +95,7 @@ export default function ProjectsPage() {
                   sizes="(max-width: 768px) 100vw, 33vw" // ปรับให้เหมาะกับ 3 คอลัมน์
                   quality={95}
                   priority={idx === 0}
-                  className="object-cover opacity-100 transition-all duration-1000 group-hover:scale-110 grayscale-[20%] group-hover:grayscale-0"
+                  className="object-cover opacity-100 transition-all duration-1000 group-hover:scale-110 'grayscale-[20%]' group-hover:grayscale-0"
                 />
                 
                 {/* Overlay on Hover */}
